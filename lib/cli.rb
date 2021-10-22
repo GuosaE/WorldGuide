@@ -21,6 +21,9 @@ class CommandLineInterface
         elsif input == 'Countries' || input == 'countries'
             puts countries_list_array
             run
+        elsif input == 'Languages' || input == 'languages'
+            puts languages_list_array
+            run
         end
     end
 
@@ -31,4 +34,10 @@ def regions_list_array
 end
 
 def countries_list_array
+    GetCountries.new.country_names_array
 end
+
+def languages_list_array
+    GetCountries.new.language_names_array
+end
+

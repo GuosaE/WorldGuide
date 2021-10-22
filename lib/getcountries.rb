@@ -38,5 +38,23 @@ class GetCountries
         common_countries_sorted
     end
 
+    def language_names_array
+        languages_array = []
+        only_names = []
+        countries.each do |country|
+            if country["languages"]
+                language = country["languages"]
+                languages_array << language
+            end
+        end
+        languages_array.each do |element|
+            element.each do |key, value|
+                only_names << value
+            end
+        end
+        language_names_unique = only_names.uniq.sort
+        language_names_unique
+    end
+
 
 end
