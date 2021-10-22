@@ -49,5 +49,22 @@ class Country
         response.body
     end
 
+    def self.import_existing_countries
+        countries = JSON.parse(self.get_country_data)
+        countries.each do |country|
+            common_name = country["name"]["common"]
+            associated_region = country["region"]
+            if country["languages"]
+                language_set = country["languages"]
+            end
+            existing_country = Country.new(common_name) 
+            existing_country.region = Region.new(associated_region)
+            existing_country.language = Language.new(language_set)
+            existing_country.save
+            # puts "#{existing_country.name} + #{existing_country.region.name} + #{existing_country.language.name}" 
+
+        end
+    end
+
 
 end
