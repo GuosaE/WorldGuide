@@ -10,7 +10,7 @@ class CommandLineInterface
         greet
         puts "To see a list of all regions please enter 'Regions'."
         puts "To see a list of all countries, please enter 'Countries'."
-        puts "To see a list of all national languages, please enter, 'Languages'."
+        puts "To see a list of all national languages, please enter 'Languages'."
         puts "To exit the application, please type 'exit'."
         puts "To see a list of the countries in a specific region, please enter 'Countries by region'."
         puts "To see a list of the countries which speak a specific language, please enter 'Countries by language'."
