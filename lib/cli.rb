@@ -3,12 +3,12 @@ require 'pry'
 class CommandLineInterface
 
     def greet
-        puts "Welcome to WorldGuide the best resource on the distribution of languages in countries around the globe!"
+        puts "Welcome to WorldGuide, the best resource on the distribution of languages in countries around the globe!"
     end
 
     def run
         greet
-        puts "To see a list of all regions please enter 'Regions'."
+        puts "To see a list of all regions, please enter 'Regions'."
         puts "To see a list of all countries, please enter 'Countries'."
         puts "To see a list of all national languages, please enter 'Languages'."
         puts "To see a list of the countries in a specific region, please enter 'Countries by region'."
