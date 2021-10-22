@@ -126,7 +126,7 @@ class CommandLineInterface
             country.name == input
             }
             selected_countries.each { |selected_country|
-                puts "Country: #{selected_country.name}, Region: #{selected_country.region.name}, Languages: #{selected_country.language.name.values.join()}"
+                puts "Country: #{selected_country.name}, Region: #{selected_country.region.name}, Languages: #{selected_country.language.name.values.join(", ")}"
             } 
         else
             puts "Please enter a valid country name."
