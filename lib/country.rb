@@ -66,5 +66,8 @@ class Country
         end
     end
 
+    def self.clear_existing_countries
+        Country.all.clear
+    end
 
 end
