@@ -27,6 +27,9 @@ class CommandLineInterface
         elsif input == 'Languages' || input == 'languages'
             puts languages_list_array
             run
+        elsif input == 'Countries by region' || input == 'countries by region'
+            countries_by_region
+            run
         end
     end
 
@@ -44,3 +47,17 @@ def languages_list_array
     GetCountries.new.language_names_array
 end
 
+def countries_by_region
+    puts "Please enter the name of the region to see the countries in that region."
+    input = gets.chomp
+    if regions_list_array.include?(input)
+        selected_countries = Country.all.select { |country|
+        country.region.name == input
+        }
+        selected_countries.each { |selected_country|
+            puts selected_country.name
+        } 
+    else
+        puts "Please enter a valid region name."
+    end
+end
