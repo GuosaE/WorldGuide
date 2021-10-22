@@ -19,25 +19,42 @@ class CommandLineInterface
         if input == 'exit' || input == 'Exit'
             'exit'
         elsif input == 'Regions' || input == 'regions'
+            puts " "
             puts regions_list_array
+            puts " "
             run
         elsif input == 'Countries' || input == 'countries'
+            puts " "
             puts countries_list_array
+            puts " "
             run
         elsif input == 'Languages' || input == 'languages'
+            puts " "
             puts languages_list_array
+            puts " "
             run
         elsif input == 'Countries by region' || input == 'countries by region'
             import_countries
+            puts " "
             countries_by_region
+            puts " "
             run
         elsif input == 'Countries by language' || input == 'countries by language'
             import_countries
+            puts " "
             countries_by_language
+            puts " "
             run
         elsif input == 'Country information' || input == 'country information'
             import_countries
+            puts " "
             country_info
+            puts " "
+            run
+        else
+            puts " "
+            puts "Please enter a valid request."
+            puts " "
             run
         end
     end
