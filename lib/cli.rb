@@ -15,6 +15,7 @@ class CommandLineInterface
         puts "To see a list of the countries in a specific region, please enter 'Countries by region'."
         puts "To see a list of the countries which speak a specific language, please enter 'Countries by language'."
         puts "To see the region and language information for a particular country, please enter 'Country information'."
+        puts "To exit the application, please type 'exit'."
         input = gets.chomp
         if input == 'exit' || input == 'Exit'
             'exit'
@@ -38,18 +39,21 @@ class CommandLineInterface
             puts " "
             countries_by_region
             puts " "
+            clear_countries
             run
         elsif input == 'Countries by language' || input == 'countries by language'
             import_countries
             puts " "
             countries_by_language
             puts " "
+            clear_countries
             run
         elsif input == 'Country information' || input == 'country information'
             import_countries
             puts " "
             country_info
             puts " "
+            clear_countries
             run
         else
             puts " "
@@ -75,6 +79,10 @@ class CommandLineInterface
 
     def import_countries
         Country.import_existing_countries
+    end
+
+    def clear_countries
+        Country.clear_existing_countries
     end
 
     def countries_by_region
