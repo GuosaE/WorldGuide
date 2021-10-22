@@ -15,6 +15,14 @@ class CommandLineInterface
         input = gets.chomp
         if input == 'exit' || input == 'Exit'
             'exit'
+        elsif input == 'Regions' || input == 'regions'
+            puts regions_list_array
+            run
+        end
     end
 
+end
+
+def regions_list_array
+    GetCountries.new.region_names_array
 end
