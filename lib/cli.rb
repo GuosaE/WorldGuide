@@ -31,6 +31,10 @@ class CommandLineInterface
             import_countries
             countries_by_region
             run
+        elsif input == 'Countries by language' || input == 'countries by language'
+            import_countries
+            countries_by_language
+            run
         end
     end
 
@@ -64,5 +68,24 @@ def countries_by_region
         } 
     else
         puts "Please enter a valid region name."
+    end
+end
+
+def countries_by_language
+    puts "Please enter the name of the language to see the countries where it is a national language."
+    input = gets.chomp
+    if languages_list_array.include?(input)
+
+        Country.all.select do |country|
+            if country.language.name != nil
+                country.language.name.each do |element|
+                    if element.include?(input) 
+                        puts country.name
+                    end
+                end
+            end
+        end
+    else 
+        puts "Please enter a valid language name."
     end
 end
