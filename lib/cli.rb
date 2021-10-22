@@ -12,6 +12,9 @@ class CommandLineInterface
         puts "To see a list of all countries, please enter 'Countries'."
         puts "To see a list of all national languages, please enter, 'Languages'."
         puts "To exit the application, please type 'exit'."
+        puts "To see a list of the countries in a specific region, please enter 'Countries by region'."
+        puts "To see a list of the countries which speak a specific language, please enter 'Countries by language'."
+        puts "To see the region and language information for a particular country, please enter 'Country information'."
         input = gets.chomp
         if input == 'exit' || input == 'Exit'
             'exit'
