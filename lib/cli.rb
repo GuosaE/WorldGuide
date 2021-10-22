@@ -18,6 +18,9 @@ class CommandLineInterface
         elsif input == 'Regions' || input == 'regions'
             puts regions_list_array
             run
+        elsif input == 'Countries' || input == 'countries'
+            puts countries_list_array
+            run
         end
     end
 
@@ -25,4 +28,7 @@ end
 
 def regions_list_array
     GetCountries.new.region_names_array
+end
+
+def countries_list_array
 end
