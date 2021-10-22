@@ -18,4 +18,15 @@ class GetCountries
         countries = JSON.parse(self.get_country_data)
     end
 
+    def region_names_array
+        regions_array = []
+        countries.each do |country|
+            region = country["region"]
+            regions_array << region
+        end
+        regions_unique = regions_array.uniq.sort
+        regions_unique
+    end
+
+
 end
