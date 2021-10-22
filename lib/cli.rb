@@ -35,57 +35,78 @@ class CommandLineInterface
             import_countries
             countries_by_language
             run
+        elsif input == 'Country information' || input == 'country information'
+            import_countries
+            country_info
+            run
         end
     end
 
-end
 
-def regions_list_array
-    GetCountries.new.region_names_array
-end
 
-def countries_list_array
-    GetCountries.new.country_names_array
-end
-
-def languages_list_array
-    GetCountries.new.language_names_array
-end
-
-def import_countries
-    Country.import_existing_countries
-end
-
-def countries_by_region
-    puts "Please enter the name of the region to see the countries in that region."
-    input = gets.chomp
-    if regions_list_array.include?(input)
-        selected_countries = Country.all.select { |country|
-        country.region.name == input
-        }
-        selected_countries.each { |selected_country|
-            puts selected_country.name
-        } 
-    else
-        puts "Please enter a valid region name."
+    def regions_list_array
+        GetCountries.new.region_names_array
     end
-end
 
-def countries_by_language
-    puts "Please enter the name of the language to see the countries where it is a national language."
-    input = gets.chomp
-    if languages_list_array.include?(input)
+    def countries_list_array
+        GetCountries.new.country_names_array
+    end
 
-        Country.all.select do |country|
-            if country.language.name != nil
-                country.language.name.each do |element|
-                    if element.include?(input) 
-                        puts country.name
+    def languages_list_array
+        GetCountries.new.language_names_array
+    end
+
+    def import_countries
+        Country.import_existing_countries
+    end
+
+    def countries_by_region
+        puts "Please enter the name of the region to see the countries in that region."
+        input = gets.chomp
+        if regions_list_array.include?(input)
+            selected_countries = Country.all.select { |country|
+            country.region.name == input
+            }
+            selected_countries.each { |selected_country|
+                puts selected_country.name
+            } 
+        else
+            puts "Please enter a valid region name."
+        end
+    end
+
+    def countries_by_language
+        puts "Please enter the name of the language to see the countries where it is a national language."
+        input = gets.chomp
+        if languages_list_array.include?(input)
+
+            Country.all.select do |country|
+                if country.language.name != nil
+                    country.language.name.each do |element|
+                        if element.include?(input) 
+                            puts country.name
+                        end
                     end
                 end
             end
+        else 
+            puts "Please enter a valid language name."
         end
-    else 
-        puts "Please enter a valid language name."
     end
+
+    def country_info
+        puts "Please enter the name of the country to see its region and language information."
+        input = gets.chomp
+        if countries_list_array.include?(input)
+            selected_countries = Country.all.select { |country|
+            country.name == input
+            }
+            selected_countries.each { |selected_country|
+                puts "Country: #{selected_country.name}, Region: #{selected_country.region.name}, Languages: #{selected_country.language.name.values.join()}"
+            } 
+        else
+            puts "Please enter a valid country name."
+        end
+    end
+
 end
