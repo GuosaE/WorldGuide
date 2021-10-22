@@ -28,5 +28,15 @@ class GetCountries
         regions_unique
     end
 
+    def country_names_array
+        common_countries_array = []
+        countries.each do |country|
+            common_country_name = country["name"]["common"]
+            common_countries_array << common_country_name
+        end
+        common_countries_sorted = common_countries_array.sort
+        common_countries_sorted
+    end
+
 
 end
