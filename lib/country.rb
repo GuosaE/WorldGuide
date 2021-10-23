@@ -61,7 +61,6 @@ class Country
             existing_country.region = Region.new(associated_region)
             existing_country.language = Language.new(language_set)
             existing_country.save
-            # puts "#{existing_country.name} + #{existing_country.region.name} + #{existing_country.language.name}" 
 
         end
     end
