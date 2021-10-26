@@ -27,22 +27,6 @@ class Country
         self.class.all << self
     end
 
-    def language
-        @language
-    end
-
-    def language=(language)
-        @language = language
-    end
-
-    def region
-        @region
-    end
-
-    def region=(region)
-        @region = region
-    end
-
     def self.get_country_data
         uri = URI.parse(URL)
         response = Net::HTTP.get_response(uri)
@@ -61,7 +45,6 @@ class Country
             existing_country.region = Region.new(associated_region)
             existing_country.language = Language.new(language_set)
             existing_country.save
-
         end
     end
 
